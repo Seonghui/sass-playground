@@ -1,0 +1,25 @@
+{
+  "name": "sass-playground",
+  "version": "1.0.0",
+  "description": "Stella's Sass Playground",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "autoprefixer": "^9.4.10",
+    "node-sass": "^4.11.0",
+    "postcss-cli": "^6.1.2",
+    "sass-loader": "^7.1.0",
+    "uglifycss": "0.0.29"
+  },
+  "scripts": {
+    "compile:css": "node-sass --output-style compressed assets/src/scss --output assets/src/build",
+    "prefix:css": "postcss -u autoprefixer -r assets/src/build",
+    "minify:css": "uglifycss assets/src/build/main.css > assets/dist/css/main.css",
+    
+    "build:css": "npm run compile:css && npm run prefix:css && npm run minify:css",
+    
+    "watch:css": "node-sass --watch --output-style compressed assets/src/scss --output assets/dist/css"
+  },
+  "author": "Stella Yu",
+  "license": "ISC"
+}
